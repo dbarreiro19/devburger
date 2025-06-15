@@ -26,7 +26,7 @@ h1 {
 }
 
 h1 span {
-    font-family: 'Super Adorable';
+    font-family: 'Super Adorable', cursive;
     font-size: 76px;
     color: #fcab1e;
     font-weight: normal;
@@ -53,50 +53,86 @@ ul li a {
     max-width: 1000px;
     margin: 64px auto;
     padding: 64px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 64px;
     background-color: #212121;
     border-radius: 20px;
+}
+
+.display-none {
+    display: none;
 }
 
 button {
     height: 100px;
     width: 150px;
     font-weight: bold;
+    line-height: 1.2em;
     border: none;
     border-radius: 15px;
     cursor: pointer;
+    transition: all .2s;
 }
 
 button:hover {
     opacity: .8;
 }
 
-.button-color-type-1 {
+.button-type-1 {
     background-color: #ee3202;
     color: #fde6b2;
 }
 
-.button-color-type-2 {
+.button-type-2 {
     background-color: #fcab1e;
     color: #ee3202;
 }
 
-.button-color-type-3 {
+.button-type-3 {
     background-color: #eb6214;
     color: #fde6b2;
 }
 
-.button-color-type-4 {
+.button-type-4 {
     background-color: #fde6b2;
     color: #ee3202;
 }
 
-.button-color-type-5 {
+.button-type-5 {
     background-color: #114f44;
     color: #fde6b2;
+}
+
+.opacity {
+    opacity: 0.7;
+}
+
+.display-list {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.display-list .card {
+    height: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.display-list img {
+    width: 48px;
+}
+
+.reduce {
+    margin: 12px 0;
+    padding: 24px;
+    font-size: 2em;
+    border: 1px solid #727272;
 }
 
 img {
@@ -111,8 +147,18 @@ h2 {
     color: #fcab1e;
 }
 
-p {
+.price {
     color: #ffffff;
+}
+
+.price-line-through {
+    color: #727272;
+    font-size: .75em;
+    text-decoration: line-through;
+}
+
+.price-discount {
+    display: none;
 }
 
 footer {
@@ -155,6 +201,14 @@ footer a:hover {
     padding: 10px;
 }
 
+i {
+    margin-right: 10px;
+}
+
+address {
+    font-style: normal;
+}
+
 #copy {
     padding: 4px;
     font-size: .7em;
@@ -175,17 +229,51 @@ footer a:hover {
     color: #ccc;
 }
 
-@media screen and (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
+/* MEDIA QUERIES */
+@media screen and (min-width: 768px) {
+    .container {
+        border-radius: initial;
     }
-    
-    .footer-content div {
-        height: 250px;
+}
+
+@media screen and (max-width: 480px) {
+
+    h1 {
+        font-size: 48px;
     }
 
-    .footer-content div iframe {
-        height: 90%;
+    h1 span {
+        font-size: 52px;
     }
+
+    .container-button {        
+        margin: 30px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .container {
+        width: 100%;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 25px;
+        border-radius: initial;
+    }
+
+    .display-list {
+        padding: 100px 25px;
+        justify-items: left;
+    }
+    
+    .display-list .card {
+        margin-bottom: 50px;
+    }
+
+    .reduce {
+        margin: 0;
+    }
+
 }
